@@ -1,0 +1,127 @@
+.notification-container {
+  z-index: 1060;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+}
+
+.notification-toast {
+  min-width: 300px;
+  max-width: 450px;
+  margin-bottom: 1rem;
+  /* Override default bootstrap border/radius */
+  border-radius: 12px !important;
+  overflow: hidden;
+}
+
+.notification-header {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  color: #fff;
+  background-color: transparent !important;
+  font-family: var(--font-display);
+  letter-spacing: 0.05em;
+}
+
+.notification-header strong {
+  margin-right: auto;
+}
+
+.notification-header .btn-close {
+  filter: invert(1) grayscale(100%) brightness(200%);
+  opacity: 0.5;
+}
+
+.notification-header .btn-close:hover {
+  opacity: 1;
+}
+
+/* Status variants applying border glows */
+.notification-toast.danger {
+  border: 1px solid var(--accent-rose);
+  box-shadow: 0 4px 20px rgba(255, 42, 95, 0.2);
+}
+
+.notification-toast.danger .notification-icon {
+  color: var(--accent-rose);
+  text-shadow: 0 0 10px rgba(255, 42, 95, 0.5);
+}
+
+.notification-toast.warning {
+  border: 1px solid var(--accent-gold);
+  box-shadow: 0 4px 20px rgba(255, 184, 0, 0.2);
+}
+
+.notification-toast.warning .notification-icon {
+  color: var(--accent-gold);
+  text-shadow: 0 0 10px rgba(255, 184, 0, 0.5);
+}
+
+.notification-toast.success {
+  border: 1px solid var(--accent-emerald);
+  box-shadow: 0 4px 20px rgba(0, 255, 163, 0.2);
+}
+
+.notification-toast.success .notification-icon {
+  color: var(--accent-emerald);
+  text-shadow: 0 0 10px rgba(0, 255, 163, 0.5);
+}
+
+.notification-toast.info {
+  border: 1px solid var(--accent-cyan);
+  box-shadow: 0 4px 20px rgba(0, 240, 255, 0.2);
+}
+
+.notification-toast.info .notification-icon {
+  color: var(--accent-cyan);
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+}
+
+.notification-icon {
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notification-body {
+  color: var(--text-main);
+  padding: 1.25rem;
+  background-color: transparent;
+  font-family: var(--font-body);
+  font-size: 1rem;
+}
+
+.notification-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.notification-toast {
+  animation: slideInRight 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 576px) {
+  .notification-container {
+    padding: 0.5rem !important;
+    left: 0.5rem;
+    right: 0.5rem;
+  }
+
+  .notification-toast {
+    min-width: 100%;
+    margin-bottom: 0.5rem;
+  }
+}

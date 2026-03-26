@@ -1,0 +1,305 @@
+/* ── Layout & Typography ── */
+.url-analysis-page {
+  padding: 4rem 2rem;
+  max-width: 100%;
+}
+
+.url-analysis-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.url-analysis-header .icon {
+  margin-right: 1rem;
+  font-size: 2.5rem;
+  filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.5));
+}
+
+.url-analysis-title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.05em;
+  margin: 0;
+  line-height: 1;
+}
+
+.url-analysis-description {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  margin-bottom: 3rem;
+  max-width: 700px;
+}
+
+/* ── Input Section ── */
+.url-input-container {
+  margin-bottom: 4rem;
+  padding: 2.5rem;
+}
+
+.url-input-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.url-input-label span {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.15em;
+}
+
+.url-input-wrapper {
+  display: flex;
+  align-items: stretch;
+  gap: 1rem;
+}
+
+.search-btn {
+  width: 70px;
+  border-radius: 8px;
+  padding: 0;
+}
+
+.search-btn svg {
+  width: 28px;
+  height: 28px;
+}
+
+/* ── Results Container ── */
+.results-container {
+  margin-top: 4rem;
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.5s ease;
+}
+
+/* Dynamic glow borders based on risk */
+.glow-danger {
+  border-color: rgba(255, 42, 95, 0.3);
+}
+
+.glow-warning {
+  border-color: rgba(255, 184, 0, 0.3);
+}
+
+.glow-success {
+  border-color: rgba(0, 255, 163, 0.3);
+}
+
+.glow-info {
+  border-color: rgba(0, 240, 255, 0.3);
+}
+
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.results-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.05em;
+  margin: 0;
+  color: var(--text-main);
+}
+
+/* Cyber Badge replacing standard safety tag */
+.cyber-badge {
+  padding: 0.5rem 1.5rem;
+  border-radius: 4px;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  position: relative;
+  overflow: hidden;
+}
+
+.cyber-badge.danger {
+  background: rgba(255, 42, 95, 0.15);
+  color: var(--accent-rose);
+  border: 1px solid var(--accent-rose);
+}
+
+.cyber-badge.warning {
+  background: rgba(255, 184, 0, 0.15);
+  color: var(--accent-gold);
+  border: 1px solid var(--accent-gold);
+}
+
+.cyber-badge.success {
+  background: rgba(0, 255, 163, 0.15);
+  color: var(--accent-emerald);
+  border: 1px solid var(--accent-emerald);
+}
+
+.cyber-badge.info {
+  background: rgba(0, 240, 255, 0.15);
+  color: var(--accent-cyan);
+  border: 1px solid var(--accent-cyan);
+}
+
+/* ── Result Sections ── */
+.result-section {
+  margin-bottom: 2rem;
+  background: var(--card-inset);
+  padding: 0;
+  overflow: hidden;
+}
+
+.result-label {
+  padding: 1rem 1.75rem;
+  color: var(--text-main);
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  border-bottom: 1px solid var(--separator);
+  background: var(--card-inset);
+}
+
+.result-content {
+  padding: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.result-text {
+  font-family: monospace;
+  font-size: 1.125rem;
+  word-break: break-all;
+  color: var(--text-main);
+}
+
+/* ── Confidence Meters ── */
+.confidence-meters {
+  width: 100%;
+}
+
+.confidence-meter {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+}
+
+.confidence-meter:last-child {
+  margin-bottom: 0;
+}
+
+.confidence-meter span:first-child {
+  width: 120px;
+}
+
+.confidence-meter span:last-child {
+  width: 80px;
+  text-align: right;
+}
+
+.meter-bar {
+  flex: 1;
+  height: 12px;
+  background-color: var(--card-inset);
+  border-radius: 6px;
+  margin: 0 1.5rem;
+  overflow: hidden;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.meter-fill {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.meter-fill.safe-fill {
+  background: linear-gradient(90deg, #008f5d, var(--accent-emerald));
+}
+
+.meter-fill.danger-fill {
+  background: linear-gradient(90deg, #8a0b29, var(--accent-rose));
+}
+
+/* ── Findings Table ── */
+.findings-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.findings-table th,
+.findings-table td {
+  padding: 1.25rem 1.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--separator);
+  color: var(--text-main);
+  vertical-align: middle;
+}
+
+.findings-table thead th {
+  color: var(--text-muted);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: var(--card-inset);
+}
+
+.findings-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.findings-table tbody tr:hover td {
+  background-color: var(--separator);
+}
+
+.result-content:has(.findings-table) {
+  display: block;
+  padding: 0;
+}
+
+/* ── Loading ── */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 2rem;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .url-analysis-page {
+    padding: 2rem 1rem;
+  }
+
+  .results-container {
+    padding: 1.5rem;
+  }
+
+  .url-analysis-title {
+    font-size: 2.5rem;
+  }
+
+  .results-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}

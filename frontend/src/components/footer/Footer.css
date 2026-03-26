@@ -1,0 +1,32 @@
+.cyber-footer {
+    margin: 2rem 0;
+    padding: 2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-display);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.875rem;
+    margin-top: auto;
+    border-radius: 12px;
+}
+
+.footer-brand p,
+.footer-copyright p {
+    margin: 0;
+    color: var(--text-muted);
+}
+
+.footer-brand .text-cyan {
+    margin: 0 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .cyber-footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+}

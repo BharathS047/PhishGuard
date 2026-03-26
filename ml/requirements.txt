@@ -1,0 +1,18 @@
+# Basic data science and ML libraries
+numpy>=1.26
+pandas>=2.1
+scikit-learn>=1.3
+xgboost>=2.0
+
+# Jupyter notebook
+jupyter>=1.0
+ipykernel>=6.0
+
+# Data processing and visualization
+matplotlib>=3.7
+seaborn>=0.12
+
+# Web scraping and URL processing
+requests>=2.31
+beautifulsoup4>=4.12
+python-whois>=0.8

@@ -1,0 +1,90 @@
+2025-05-23 22:42:08,106 - root - INFO - Starting phishing database update
+2025-05-23 22:42:08,106 - root - INFO - Phishing database updater thread started
+2025-05-24 15:53:43,192 - root - INFO - Starting phishing database update
+2025-05-24 15:53:43,192 - root - INFO - Phishing database updater thread started
+2025-05-24 16:03:21,689 - root - ERROR - Error in phishing database updater: 'NoneType' object is not subscriptable
+2025-05-24 16:04:09,168 - root - INFO - Starting phishing database update
+2025-05-24 16:04:09,170 - root - INFO - Phishing database updater thread started
+2025-05-24 16:04:09,172 - root - ERROR - Error in phishing database updater: 'NoneType' object is not subscriptable
+2025-05-24 16:06:04,831 - root - INFO - Starting phishing database update
+2025-05-24 16:06:04,833 - root - INFO - Phishing database updater thread started
+2025-05-24 16:06:04,833 - root - ERROR - Error in phishing database updater: 'NoneType' object is not subscriptable
+2025-05-25 09:45:19,873 - root - INFO - Starting phishing database update
+2025-05-25 09:45:19,873 - root - INFO - Phishing database updater thread started
+2025-05-25 11:18:21,577 - root - INFO - Starting phishing database update
+2025-05-25 11:18:21,577 - root - INFO - Phishing database updater thread started
+2025-05-25 11:30:25,577 - root - INFO - Starting phishing database update
+2025-05-25 11:30:25,577 - root - INFO - Phishing database updater thread started
+2025-05-25 11:30:27,434 - root - ERROR - Error in phishing database updater: 'NoneType' object is not subscriptable
+2026-02-28 18:13:12,018 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-02-28 18:13:12,018 - PhishingDBUpdater - INFO - Database updater thread started
+2026-02-28 18:13:12,019 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-02-28 18:13:17,795 - django.request - WARNING - Not Found: /favicon.ico
+2026-02-28 18:15:55,170 - PhishingDBUpdater - ERROR - Error in database updater: 'NoneType' object is not subscriptable
+2026-02-28 18:18:51,496 - whois.whois - ERROR - Error trying to connect to socket: closing socket - timed out
+2026-02-28 18:19:02,537 - whois.whois - ERROR - Error trying to connect to socket: closing socket - timed out
+2026-02-28 18:19:13,679 - whois.whois - ERROR - Error trying to connect to socket: closing socket - timed out
+2026-02-28 18:40:43,452 - django.utils.autoreload - INFO - C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\backend\phishingUrlDetectionApp\email_analysis.py changed, reloading.
+2026-02-28 18:40:45,226 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-02-28 18:40:45,226 - PhishingDBUpdater - INFO - Database updater thread started
+2026-02-28 18:40:45,226 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-02-28 18:40:45,227 - PhishingDBUpdater - ERROR - Error in database updater: 'NoneType' object is not subscriptable
+2026-02-28 18:41:00,424 - django.utils.autoreload - INFO - C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\backend\phishingUrlDetectionApp\views.py changed, reloading.
+2026-02-28 18:41:02,169 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-02-28 18:41:02,169 - PhishingDBUpdater - INFO - Database updater thread started
+2026-02-28 18:41:02,169 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-02-28 18:41:02,170 - PhishingDBUpdater - ERROR - Error in database updater: 'NoneType' object is not subscriptable
+2026-02-28 18:47:10,467 - django.utils.autoreload - INFO - C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\backend\phishingUrlDetectionApp\views.py changed, reloading.
+2026-02-28 18:47:12,250 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-02-28 18:47:12,251 - PhishingDBUpdater - INFO - Database updater thread started
+2026-02-28 18:47:12,251 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-02-28 18:47:12,252 - PhishingDBUpdater - ERROR - Error in database updater: 'NoneType' object is not subscriptable
+2026-02-28 18:53:49,784 - django.utils.autoreload - INFO - C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\backend\phishingUrlDetectionApp\models.py changed, reloading.
+2026-02-28 18:53:51,546 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-02-28 18:53:51,546 - PhishingDBUpdater - INFO - Database updater thread started
+2026-02-28 18:53:51,546 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-02-28 18:53:51,547 - PhishingDBUpdater - ERROR - Error in database updater: 'NoneType' object is not subscriptable
+2026-02-28 18:55:29,910 - django.utils.autoreload - INFO - C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\backend\phishingUrlDetectionApp\views.py changed, reloading.
+2026-02-28 18:55:31,638 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-02-28 18:55:31,639 - PhishingDBUpdater - INFO - Database updater thread started
+2026-02-28 18:55:31,639 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-02-28 18:55:31,640 - PhishingDBUpdater - ERROR - Error in database updater: 'NoneType' object is not subscriptable
+2026-02-28 18:55:47,916 - django.utils.autoreload - INFO - C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\backend\phishingUrlDetectionApp\urls.py changed, reloading.
+2026-02-28 18:55:49,622 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-02-28 18:55:49,622 - PhishingDBUpdater - INFO - Database updater thread started
+2026-02-28 18:55:49,622 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-02-28 18:55:49,623 - PhishingDBUpdater - ERROR - Error in database updater: 'NoneType' object is not subscriptable
+2026-02-28 19:00:24,836 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-02-28 19:00:24,836 - PhishingDBUpdater - INFO - Database updater thread started
+2026-02-28 19:00:24,836 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-02-28 19:00:24,837 - PhishingDBUpdater - ERROR - Error in database updater: 'NoneType' object is not subscriptable
+2026-02-28 19:09:09,244 - whois.whois - ERROR - Error trying to connect to socket: closing socket - timed out
+2026-02-28 19:09:19,987 - whois.whois - ERROR - Error trying to connect to socket: closing socket - timed out
+2026-02-28 19:09:30,622 - whois.whois - ERROR - Error trying to connect to socket: closing socket - timed out
+2026-02-28 19:11:16,598 - django.utils.autoreload - INFO - C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\backend\phishingUrlDetectionApp\views.py changed, reloading.
+2026-02-28 19:27:25,102 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-02-28 19:27:25,102 - PhishingDBUpdater - INFO - Database updater thread started
+2026-02-28 19:27:25,103 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-02-28 19:27:25,104 - PhishingDBUpdater - ERROR - Error in database updater: 'NoneType' object is not subscriptable
+2026-02-28 19:29:22,010 - whois.whois - ERROR - Error trying to connect to socket: closing socket - timed out
+2026-02-28 19:29:32,716 - whois.whois - ERROR - Error trying to connect to socket: closing socket - timed out
+2026-02-28 19:29:43,374 - whois.whois - ERROR - Error trying to connect to socket: closing socket - timed out
+2026-02-28 19:30:04,713 - whois.whois - ERROR - Error trying to connect to socket: closing socket - timed out
+2026-02-28 19:30:15,422 - whois.whois - ERROR - Error trying to connect to socket: closing socket - timed out
+2026-02-28 19:30:26,067 - whois.whois - ERROR - Error trying to connect to socket: closing socket - timed out
+2026-03-01 17:51:02,367 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-03-01 17:51:02,367 - PhishingDBUpdater - INFO - Database updater thread started
+2026-03-01 17:51:02,367 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-03-01 18:00:41,012 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-03-01 18:00:41,012 - PhishingDBUpdater - INFO - Database updater thread started
+2026-03-01 18:00:41,012 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-03-01 18:00:42,629 - PhishingDBUpdater - ERROR - Error in database updater: 'NoneType' object is not subscriptable
+2026-03-01 18:01:36,903 - django.request - WARNING - Not Found: /favicon.ico
+2026-03-02 23:39:41,577 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-03-02 23:39:41,577 - PhishingDBUpdater - INFO - Database updater thread started
+2026-03-02 23:39:41,577 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-03-02 23:39:43,378 - PhishingDBUpdater - ERROR - Error in database updater: 'NoneType' object is not subscriptable
+2026-03-14 16:38:30,799 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-03-14 16:38:30,799 - PhishingDBUpdater - INFO - Database updater thread started
+2026-03-14 16:38:30,799 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-03-14 16:38:32,795 - PhishingDBUpdater - ERROR - Error in database updater: 'NoneType' object is not subscriptable

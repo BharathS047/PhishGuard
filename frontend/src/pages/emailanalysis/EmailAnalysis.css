@@ -1,0 +1,44 @@
+/* ── Layout & Typography ── */
+.email-analysis-page {
+  padding: 4rem 1rem;
+  width: 100%;
+}
+
+.analysis-form {
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.form-field {
+  margin-bottom: 1.5rem;
+}
+
+.form-field label {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.75rem;
+}
+
+/* Inherits .cyber-input and .results-container styles from CheckUrl/index */
+
+.tracking-widest {
+  letter-spacing: 0.1em;
+}
+
+.text-purple {
+  color: var(--accent-purple);
+}
+
+@media (max-width: 768px) {
+  .email-analysis-page {
+    padding: 2rem 1rem;
+  }
+
+  .analysis-form {
+    padding: 1.5rem;
+  }
+}

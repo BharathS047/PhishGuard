@@ -1,0 +1,8 @@
+
+*.db
+api_keys.env
+.env
+*.pyc
+__pycache__/
+venv/
+node_modules/

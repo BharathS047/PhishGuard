@@ -1,0 +1,83 @@
+/* ── Layout & Typography ── */
+.features-summary {
+  padding: 2rem 0;
+  margin-top: 0;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.05em;
+  color: var(--text-main);
+  margin-bottom: 3rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--border-stark);
+  text-align: left;
+}
+
+/* ── Features Grid ── */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  /* backgrounds and hover shadow handled by .glass-panel */
+}
+
+.feature-icon {
+  background-color: transparent;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--accent-cyan);
+  padding-bottom: 0.5rem;
+  border-radius: 0;
+}
+
+.feature-icon img {
+  width: 40px;
+  height: 40px;
+  transition: all 0.3s ease;
+}
+
+[data-theme='light'] .feature-icon img {
+  filter: invert(1);
+}
+
+.feature-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-main);
+  margin-bottom: 1rem;
+}
+
+.feature-description {
+  color: var(--text-muted);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  font-family: var(--font-body);
+}
+
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
