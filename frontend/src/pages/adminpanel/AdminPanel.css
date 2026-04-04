@@ -1,0 +1,203 @@
+.admin-container {
+    padding: 2rem 0;
+    max-width: 1300px;
+    margin: 0 auto;
+    animation: fadeIn 0.5s ease;
+}
+
+/* ── Header ── */
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--separator);
+}
+
+.admin-title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: var(--text-main);
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/* ── Stat Cards ── */
+.admin-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+}
+
+@media (max-width: 1100px) { .admin-stats-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 600px)  { .admin-stats-grid { grid-template-columns: repeat(2, 1fr); } }
+
+.admin-stat-card {
+    padding: 1.25rem 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid var(--border-stark);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.admin-stat-card:hover {
+    border-color: rgba(0, 240, 255, 0.2);
+    box-shadow: 0 0 16px rgba(0, 240, 255, 0.06);
+}
+
+.admin-stat-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    margin-bottom: 0.4rem;
+}
+
+.admin-stat-value {
+    font-size: 2rem;
+    font-weight: 800;
+    font-family: monospace;
+    margin-bottom: 0.2rem;
+    line-height: 1;
+}
+
+.admin-stat-sub {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+/* ── Filters ── */
+.admin-filters {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.admin-search {
+    flex: 1;
+    min-width: 220px;
+}
+
+.admin-filter-pills {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.filter-pill {
+    background: transparent;
+    border: 1px solid var(--border-stark);
+    color: var(--text-muted);
+    padding: 0.3rem 0.85rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-pill:hover {
+    border-color: rgba(0, 240, 255, 0.4);
+    color: var(--accent-cyan);
+}
+
+.filter-pill.active {
+    background: rgba(0, 240, 255, 0.08);
+    border-color: rgba(0, 240, 255, 0.4);
+    color: var(--accent-cyan);
+}
+
+/* ── Table ── */
+.admin-table th {
+    padding: 1rem 1.25rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--separator);
+    text-align: left;
+    white-space: nowrap;
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.admin-table th.sortable {
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.2s;
+}
+
+.admin-table th.sortable:hover {
+    color: var(--accent-cyan);
+}
+
+.admin-table td {
+    padding: 0.85rem 1.25rem;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--separator);
+    font-size: 0.9rem;
+}
+
+.admin-table tbody tr {
+    transition: background 0.2s ease;
+}
+
+.admin-table tbody tr:hover {
+    background: rgba(0, 240, 255, 0.03);
+}
+
+.admin-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* ── User avatar ── */
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+}
+
+/* ── Badges ── */
+.cyber-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.cyber-badge.cyan,
+.cyber-badge.info {
+    background: rgba(0, 240, 255, 0.08);
+    color: var(--accent-cyan);
+    border: 1px solid rgba(0, 240, 255, 0.2);
+}
+
+.cyber-badge.purple {
+    background: rgba(138, 43, 226, 0.1);
+    color: var(--accent-purple);
+    border: 1px solid rgba(138, 43, 226, 0.25);
+}
+
+.cyber-badge.rose {
+    background: rgba(255, 42, 95, 0.1);
+    color: var(--accent-rose);
+    border: 1px solid rgba(255, 42, 95, 0.25);
+}

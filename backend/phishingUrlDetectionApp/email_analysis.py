@@ -70,19 +70,23 @@ class EmailHeaderAnalyzer:
 
         If *headers_text* is empty but *sender* / *subject* are provided,
         synthetic minimal headers are constructed so that header-level
-        checks (Reply-To mismatch, etc.) still fire.
+        checks (Reply-To mismatch, etc.) still fire — but authentication
+        checks are skipped since the user didn't paste raw headers.
         """
         self.suspicious_indicators = []
         self.authentication_results = {}
         self.routing_info = []
 
+        # Track whether raw headers were provided
+        self.has_raw_headers = bool(headers_text.strip())
+
         # Build synthetic headers when user didn't paste raw headers
-        if not headers_text.strip() and (sender or subject):
+        if not self.has_raw_headers and (sender or subject):
             headers_text = f"From: {sender}\r\nSubject: {subject}\r\n"
-        
+
         # Parse the headers
         headers = Parser(policy=policy.default).parsestr(headers_text)
-        
+
         # Extract key headers
         self.parsed_headers = {
             'from': headers.get('From', ''),
@@ -99,26 +103,28 @@ class EmailHeaderAnalyzer:
             'dkim': '',
             'dmarc': ''
         }
-        
-        # Check for authentication results
-        self._parse_authentication_results()
-        
-        # Check for indicators of phishing
-        self._check_spoofing_indicators()
-        self._check_unusual_routing()
+
+        # Only run authentication checks if raw headers were provided
+        if self.has_raw_headers:
+            self._parse_authentication_results()
+            self._check_spoofing_indicators()
+            self._check_unusual_routing()
+
+        # These checks work even with just sender/subject
         self._check_reply_to_mismatch()
         self._check_sender_domain()
-        
+
         # Calculate risk score (0-100)
         risk_score = self._calculate_risk_score()
-        
+
         return {
             'parsed_headers': self.parsed_headers,
             'authentication_results': self.authentication_results,
             'suspicious_indicators': self.suspicious_indicators,
             'routing_info': self.routing_info,
             'risk_score': risk_score,
-            'risk_level': self._risk_level_from_score(risk_score)
+            'risk_level': self._risk_level_from_score(risk_score),
+            'has_raw_headers': self.has_raw_headers
         }
     
     def _parse_received_headers(self, headers):
@@ -500,14 +506,16 @@ class EmailContentAnalyzer:
                 self.social_engineering_tactics.append('urgency')
                 break
         
-        # Check for financial terms
+        # Check for financial terms — only flag if urgency was also detected
+        # (financial terms alone are normal in business email)
+        has_urgency = 'urgency' in self.social_engineering_tactics
         for term in self.FINANCIAL_SUBJECT_TERMS:
             if term in subject_lower:
                 self.suspicious_indicators.append({
                     'type': 'subject',
                     'name': 'Financial Terms in Subject',
                     'description': f'Subject contains financial terms: "{term}"',
-                    'severity': 'low'
+                    'severity': 'medium' if has_urgency else 'info'
                 })
                 break
         
@@ -811,9 +819,11 @@ class EmailContentAnalyzer:
                 score += 15
             elif indicator['severity'] == 'medium':
                 score += 10
+            elif indicator['severity'] == 'info':
+                score += 0  # Informational only — no risk score impact
             else:
                 score += 5
-        
+
         # Sender indicators
         sender_indicators = [i for i in self.suspicious_indicators if i['type'] == 'sender']
         for indicator in sender_indicators:
@@ -821,6 +831,8 @@ class EmailContentAnalyzer:
                 score += 20
             elif indicator['severity'] == 'medium':
                 score += 10
+            elif indicator['severity'] == 'info':
+                score += 0
             else:
                 score += 5
         

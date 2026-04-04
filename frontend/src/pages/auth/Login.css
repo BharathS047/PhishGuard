@@ -1,0 +1,29 @@
+.auth-container {
+    padding: 2rem;
+    animation: fadeIn 0.5s ease;
+}
+
+.auth-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--border-stark);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 12px;
+}
+
+.auth-card:hover {
+    box-shadow: 0 8px 32px 0 rgba(0, 240, 255, 0.05);
+    border: 1px solid var(--glass-border-hover);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

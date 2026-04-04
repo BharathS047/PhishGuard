@@ -11,8 +11,12 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+from datetime import timedelta
 # import django_heroku
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -40,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'phishingUrlDetectionApp',
     'rest_framework',
+    'rest_framework_simplejwt',
     'corsheaders',
 ]
 
@@ -135,5 +140,37 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
+    'AUTH_HEADER_TYPES': ('Bearer',),
+}
+
 # Activate Django-Heroku.
 #django_heroku.settings(locals())
+
+# --- Email (SMTP) ---
+EMAIL_HOST = os.environ.get('EMAIL_HOST', 'smtp.gmail.com')
+EMAIL_PORT = int(os.environ.get('EMAIL_PORT', 587))
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', '')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
+DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', '') or EMAIL_HOST_USER or 'noreply@phishguard.local'
+
+# Use the console backend locally when no SMTP credentials are configured,
+# so registration / password-reset flows work without a real mail server.
+# Set EMAIL_HOST_USER in .env to switch to the real SMTP backend.
+if EMAIL_HOST_USER:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+FRONTEND_URL = os.environ.get('FRONTEND_URL', 'http://localhost:3000')
+EMAIL_VERIFICATION_EXPIRY_MINUTES = 15
+PASSWORD_RESET_EXPIRY_MINUTES = 10

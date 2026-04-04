@@ -395,6 +395,13 @@ class ReputationChecker:
 # Create a singleton instance
 reputation_checker = ReputationChecker()
 
+# Share live phishing domains with feature.py for statistical_report()
+try:
+    from .feature import load_phishing_domains
+    load_phishing_domains(reputation_checker.known_phishing_domains)
+except Exception:
+    pass
+
 def check_url_reputation(url):
     """
     Check if a URL is a phishing site
@@ -409,4 +416,10 @@ def check_url_reputation(url):
 
 def update_phishing_database():
     """Update the phishing database from external sources"""
-    reputation_checker.update_phishing_database() 
+    reputation_checker.update_phishing_database()
+    # Refresh feature.py's copy of phishing domains
+    try:
+        from .feature import load_phishing_domains
+        load_phishing_domains(reputation_checker.known_phishing_domains)
+    except Exception:
+        pass

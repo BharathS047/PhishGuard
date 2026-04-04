@@ -1,0 +1,6 @@
+/* Reusing standard auth styles from Login.css */
+@import './Login.css';
+
+.register-container {
+    animation: fadeIn 0.5s ease;
+}

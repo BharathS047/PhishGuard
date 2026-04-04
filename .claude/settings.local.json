@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \":*)",
+      "Bash(pip install:*)",
+      "Bash(python -m ml.build_dataset --samples 5000 --workers 8)",
+      "Bash(python -c \"import whois; print\\(''whois OK''\\)\")",
+      "Bash(python -c \"import requests; print\\(''requests OK''\\)\")",
+      "Bash(python -c \"import certifi; print\\(''certifi OK''\\)\")",
+      "Bash(python -c \"import lightgbm; print\\(''lightgbm OK''\\)\")",
+      "Bash(taskkill /F /FI \"WINDOWTITLE eq *build_dataset*\")",
+      "Bash(pkill -f \"build_dataset\")",
+      "Bash(python -m ml.build_dataset --resume)",
+      "Bash(python -m ml.train_new_model)",
+      "Bash(python:*)",
+      "Bash(find C:/Users/bhara/OneDrive/Documents/Project/Detecting--Phishing-Attacks/backend/phishingUrlDetectionApp/management -type f -name *.py)",
+      "Bash(grep -E \"\\\\.py$\")",
+      "Bash(ls:*)",
+      "Bash(sqlite3:*)"
+    ]
+  }
+}

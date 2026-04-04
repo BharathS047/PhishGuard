@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './EmailAnalysis.css';
+import { useAuth } from '../../context/AuthContext';
 
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
 
 const EmailAnalysis = () => {
+  const { tokens } = useAuth();
   const [formData, setFormData] = useState({
     sender: '',
     subject: '',
@@ -30,7 +32,11 @@ const EmailAnalysis = () => {
     setResult(null);
 
     try {
-      const response = await axios.post(`${API_URL}/analyze_email/`, formData);
+      const response = await axios.post(`${API_URL}/analyze_email/`, formData, {
+        headers: {
+          Authorization: `Bearer ${tokens?.access}`
+        }
+      });
       setResult(response.data);
     } catch (err) {
       setError(err.response?.data?.error || 'An error occurred while analyzing the email');
@@ -65,9 +71,9 @@ const EmailAnalysis = () => {
 
     // Determine glow color based on combined risk score
     let glowCls = "glow-success";
-    if (result.combined_risk_score >= 75) glowCls = "glow-danger";
-    else if (result.combined_risk_score >= 40) glowCls = "glow-warning";
-    else if (result.combined_risk_score >= 15) glowCls = "glow-info";
+    if (result.combined_risk_score >= 70) glowCls = "glow-danger";
+    else if (result.combined_risk_score >= 45) glowCls = "glow-warning";
+    else if (result.combined_risk_score >= 20) glowCls = "glow-info";
 
     return (
       <div className={`results-container glass-panel mt-5 ${glowCls}`}>
@@ -86,7 +92,7 @@ const EmailAnalysis = () => {
           <span className="text-main" style={{ width: 'auto', marginLeft: '1rem' }}>{Math.round(result.combined_risk_score)}%</span>
         </div>
 
-        <div className="d-flex justify-content-center gap-5 mt-4 mb-5">
+        <div className="d-flex justify-content-center gap-5 mt-4 mb-4">
           <div className="text-center">
             <div className="text-uppercase tracking-widest mb-2" style={{ fontSize: '0.75rem', color: 'var(--text-main)' }}>Header Score</div>
             <span className={`cyber-badge ${getBadgeVariant(result.header_analysis.risk_level)}`}>
@@ -100,6 +106,12 @@ const EmailAnalysis = () => {
             </span>
           </div>
         </div>
+
+        {result.header_analysis.has_raw_headers === false && (
+          <div className="text-center mb-4" style={{ color: 'var(--text-muted)', fontSize: '0.8rem', fontStyle: 'italic' }}>
+            Note: Raw email headers were not provided. SPF/DKIM/DMARC authentication could not be verified. For a more complete analysis, paste the full email source including headers.
+          </div>
+        )}
 
         {tactics.length > 0 && (
           <div className="result-section glass-panel">

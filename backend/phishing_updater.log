@@ -88,3 +88,369 @@
 2026-03-14 16:38:30,799 - PhishingDBUpdater - INFO - Database updater thread started
 2026-03-14 16:38:30,799 - PhishingDBUpdater - INFO - Starting phishing database update
 2026-03-14 16:38:32,795 - PhishingDBUpdater - ERROR - Error in database updater: 'NoneType' object is not subscriptable
+2026-03-28 20:49:52,353 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-03-28 20:49:52,353 - PhishingDBUpdater - INFO - Database updater thread started
+2026-03-28 20:49:52,354 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-03-29 16:00:54,928 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-03-29 16:00:54,928 - PhishingDBUpdater - INFO - Database updater thread started
+2026-03-29 16:00:54,928 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-03-29 16:03:53,281 - PhishingDBUpdater - ERROR - Error in database updater: 'NoneType' object is not subscriptable
+2026-03-29 16:03:53,282 - PhishingDBUpdater - INFO - Downloading Tranco top-1M list...
+2026-03-29 16:03:54,852 - PhishingDBUpdater - INFO - Tranco list downloaded successfully
+2026-03-29 16:09:47,290 - django.utils.autoreload - INFO - C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\backend\phishingUrlDetectionApp\feature.py changed, reloading.
+2026-03-29 16:09:49,004 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-03-29 16:09:49,005 - PhishingDBUpdater - INFO - Database updater thread started
+2026-03-29 16:09:49,005 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-03-29 16:09:49,006 - PhishingDBUpdater - ERROR - Error in database updater: 'NoneType' object is not subscriptable
+2026-03-29 16:09:49,006 - PhishingDBUpdater - INFO - Tranco list is up to date, loading from cache
+2026-03-29 16:10:02,962 - django.utils.autoreload - INFO - C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\backend\phishingUrlDetectionApp\feature.py changed, reloading.
+2026-03-29 16:10:04,625 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-03-29 16:10:04,625 - PhishingDBUpdater - INFO - Database updater thread started
+2026-03-29 16:10:04,625 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-03-29 16:10:04,626 - PhishingDBUpdater - ERROR - Error in database updater: 'NoneType' object is not subscriptable
+2026-03-29 16:10:04,627 - PhishingDBUpdater - INFO - Tranco list is up to date, loading from cache
+2026-03-29 16:12:15,013 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-03-29 16:12:15,013 - PhishingDBUpdater - INFO - Database updater thread started
+2026-03-29 16:12:15,013 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-03-29 16:12:15,014 - PhishingDBUpdater - ERROR - Error in database updater: 'NoneType' object is not subscriptable
+2026-03-29 16:12:15,014 - PhishingDBUpdater - INFO - Tranco list is up to date, loading from cache
+2026-03-29 16:14:29,642 - django.utils.autoreload - INFO - C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\backend\phishingUrlDetectionApp\tasks.py changed, reloading.
+2026-03-29 16:14:29,762 - django.utils.autoreload - INFO - C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\backend\phishingUrlDetectionApp\tasks.py changed, reloading.
+2026-03-29 16:14:31,449 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-03-29 16:14:31,449 - PhishingDBUpdater - INFO - Database updater thread started
+2026-03-29 16:14:31,449 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-03-29 16:14:31,450 - PhishingDBUpdater - INFO - Database update completed
+2026-03-29 16:14:31,451 - PhishingDBUpdater - INFO - Tranco list is up to date, loading from cache
+2026-03-29 16:14:31,550 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-03-29 16:14:31,550 - PhishingDBUpdater - INFO - Database updater thread started
+2026-03-29 16:14:31,550 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-03-29 16:14:31,552 - PhishingDBUpdater - INFO - Database update completed
+2026-03-29 16:14:31,552 - PhishingDBUpdater - INFO - Tranco list is up to date, loading from cache
+2026-03-29 16:14:40,556 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-03-29 16:14:40,556 - PhishingDBUpdater - INFO - Database updater thread started
+2026-03-29 16:14:40,556 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-03-29 16:14:40,557 - PhishingDBUpdater - INFO - Database update completed
+2026-03-29 16:14:40,557 - PhishingDBUpdater - INFO - Tranco list is up to date, loading from cache
+2026-03-29 16:18:56,823 - django.utils.autoreload - INFO - C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\backend\phishingUrlDetectionApp\feature.py changed, reloading.
+2026-03-29 16:18:57,519 - django.utils.autoreload - INFO - C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\backend\phishingUrlDetectionApp\feature.py changed, reloading.
+2026-03-29 16:18:58,524 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-03-29 16:18:58,524 - PhishingDBUpdater - INFO - Database updater thread started
+2026-03-29 16:18:58,524 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-03-29 16:18:58,525 - PhishingDBUpdater - INFO - Database update completed
+2026-03-29 16:18:58,526 - PhishingDBUpdater - INFO - Tranco list is up to date, loading from cache
+2026-03-29 16:18:59,168 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-03-29 16:18:59,168 - PhishingDBUpdater - INFO - Database updater thread started
+2026-03-29 16:18:59,168 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-03-29 16:18:59,169 - PhishingDBUpdater - INFO - Database update completed
+2026-03-29 16:18:59,169 - PhishingDBUpdater - INFO - Tranco list is up to date, loading from cache
+2026-03-30 14:00:06,249 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-03-30 14:00:06,249 - PhishingDBUpdater - INFO - Database updater thread started
+2026-03-30 14:00:06,250 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-03-30 14:00:11,480 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-03-30 14:00:11,480 - PhishingDBUpdater - INFO - Database updater thread started
+2026-03-30 14:00:11,480 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-03-30 14:04:11,158 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-03-30 14:04:11,158 - PhishingDBUpdater - INFO - Database updater thread started
+2026-03-30 14:04:11,158 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-03-30 14:04:11,159 - PhishingDBUpdater - INFO - Model retrainer thread started (interval: 604800 seconds)
+2026-03-30 14:04:11,159 - PhishingDBUpdater - INFO - Model retrainer thread started
+2026-03-30 22:43:26,608 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-03-30 22:43:26,608 - PhishingDBUpdater - INFO - Database updater thread started
+2026-03-30 22:43:26,608 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-03-30 22:43:26,609 - PhishingDBUpdater - INFO - Model retrainer thread started (interval: 604800 seconds)
+2026-03-30 22:43:26,609 - PhishingDBUpdater - INFO - Model retrainer thread started
+2026-03-30 22:46:10,616 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-03-30 22:46:10,616 - PhishingDBUpdater - INFO - Database updater thread started
+2026-03-30 22:46:10,616 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-03-30 22:46:10,616 - PhishingDBUpdater - INFO - Model retrainer thread started (interval: 604800 seconds)
+2026-03-30 22:46:10,616 - PhishingDBUpdater - INFO - Model retrainer thread started
+2026-03-30 23:25:20,429 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-03-30 23:25:20,429 - PhishingDBUpdater - INFO - Database updater thread started
+2026-03-30 23:25:20,429 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-03-30 23:25:20,429 - PhishingDBUpdater - INFO - Model retrainer thread started (interval: 604800 seconds)
+2026-03-30 23:25:20,429 - PhishingDBUpdater - INFO - Model retrainer thread started
+2026-03-30 23:28:13,957 - PhishingDBUpdater - INFO - Database update completed
+2026-03-30 23:28:13,957 - PhishingDBUpdater - INFO - Downloading Tranco top-1M list...
+2026-03-30 23:28:15,572 - PhishingDBUpdater - INFO - Tranco list downloaded successfully
+2026-03-30 23:34:49,107 - django.request - WARNING - Unauthorized: /auth/login/
+2026-03-30 23:39:59,542 - django.utils.autoreload - INFO - C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\backend\phishingUrlDetectionApp\views.py changed, reloading.
+2026-03-30 23:40:01,357 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-03-30 23:40:01,357 - PhishingDBUpdater - INFO - Database updater thread started
+2026-03-30 23:40:01,357 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-03-30 23:40:01,358 - PhishingDBUpdater - INFO - Model retrainer thread started (interval: 604800 seconds)
+2026-03-30 23:40:01,358 - PhishingDBUpdater - INFO - Model retrainer thread started
+2026-03-30 23:40:01,359 - PhishingDBUpdater - INFO - Database update completed
+2026-03-30 23:40:01,360 - PhishingDBUpdater - INFO - Tranco list is up to date, loading from cache
+2026-03-30 23:40:11,985 - django.utils.autoreload - INFO - C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\backend\phishingUrlDetectionApp\views.py changed, reloading.
+2026-03-30 23:40:13,772 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-03-30 23:40:13,772 - PhishingDBUpdater - INFO - Database updater thread started
+2026-03-30 23:40:13,772 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-03-30 23:40:13,773 - PhishingDBUpdater - INFO - Model retrainer thread started (interval: 604800 seconds)
+2026-03-30 23:40:13,773 - PhishingDBUpdater - INFO - Model retrainer thread started
+2026-03-30 23:40:13,775 - PhishingDBUpdater - INFO - Database update completed
+2026-03-30 23:40:13,776 - PhishingDBUpdater - INFO - Tranco list is up to date, loading from cache
+2026-03-30 23:54:52,236 - django.utils.autoreload - INFO - C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\backend\phishingUrlDetectionApp\views.py changed, reloading.
+2026-03-30 23:54:53,996 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-03-30 23:54:53,996 - PhishingDBUpdater - INFO - Database updater thread started
+2026-03-30 23:54:53,996 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-03-30 23:54:53,997 - PhishingDBUpdater - INFO - Model retrainer thread started (interval: 604800 seconds)
+2026-03-30 23:54:53,997 - PhishingDBUpdater - INFO - Model retrainer thread started
+2026-03-30 23:54:53,998 - PhishingDBUpdater - INFO - Database update completed
+2026-03-30 23:54:53,998 - PhishingDBUpdater - INFO - Tranco list is up to date, loading from cache
+2026-03-31 00:00:09,554 - django.request - WARNING - Bad Request: /auth/register/
+2026-03-31 00:05:20,600 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-03-31 00:05:20,600 - PhishingDBUpdater - INFO - Database updater thread started
+2026-03-31 00:05:20,600 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-03-31 00:05:20,600 - PhishingDBUpdater - INFO - Model retrainer thread started (interval: 604800 seconds)
+2026-03-31 00:05:20,600 - PhishingDBUpdater - INFO - Model retrainer thread started
+2026-03-31 00:07:38,747 - django.utils.autoreload - INFO - C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\backend\phishingUrlDetectionApp\views.py changed, reloading.
+2026-03-31 00:07:40,599 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-03-31 00:07:40,599 - PhishingDBUpdater - INFO - Database updater thread started
+2026-03-31 00:07:40,599 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-03-31 00:07:40,600 - PhishingDBUpdater - INFO - Model retrainer thread started (interval: 604800 seconds)
+2026-03-31 00:07:40,600 - PhishingDBUpdater - INFO - Model retrainer thread started
+2026-03-31 00:07:42,424 - PhishingDBUpdater - INFO - Database update completed
+2026-03-31 00:07:42,424 - PhishingDBUpdater - INFO - Downloading Tranco top-1M list...
+2026-03-31 00:07:43,844 - PhishingDBUpdater - INFO - Tranco list downloaded successfully
+2026-03-31 13:27:19,003 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-03-31 13:27:19,003 - PhishingDBUpdater - INFO - Database updater thread started
+2026-03-31 13:27:19,003 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-03-31 13:27:19,003 - PhishingDBUpdater - INFO - Model retrainer thread started (interval: 604800 seconds)
+2026-03-31 13:27:19,003 - PhishingDBUpdater - INFO - Model retrainer thread started
+2026-03-31 13:27:24,729 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-03-31 13:27:24,729 - PhishingDBUpdater - INFO - Database updater thread started
+2026-03-31 13:27:24,729 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-03-31 13:27:24,729 - PhishingDBUpdater - INFO - Model retrainer thread started (interval: 604800 seconds)
+2026-03-31 13:27:24,729 - PhishingDBUpdater - INFO - Model retrainer thread started
+2026-03-31 13:30:31,655 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-03-31 13:30:31,656 - PhishingDBUpdater - INFO - Database updater thread started
+2026-03-31 13:30:31,656 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-03-31 13:30:31,656 - PhishingDBUpdater - INFO - Model retrainer thread started (interval: 604800 seconds)
+2026-03-31 13:30:31,656 - PhishingDBUpdater - INFO - Model retrainer thread started
+2026-03-31 13:30:32,880 - PhishingDBUpdater - INFO - Database update completed
+2026-03-31 13:30:32,881 - PhishingDBUpdater - INFO - Tranco list is up to date, loading from cache
+2026-03-31 13:33:00,709 - django.request - WARNING - Unauthorized: /auth/login/
+2026-03-31 13:35:19,120 - django.request - ERROR - Internal Server Error: /auth/register/
+Traceback (most recent call last):
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\rest_framework\generics.py", line 194, in post
+    return self.create(request, *args, **kwargs)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\rest_framework\mixins.py", line 19, in create
+    self.perform_create(serializer)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\backend\phishingUrlDetectionApp\views.py", line 46, in perform_create
+    send_mail(
+    ~~~~~~~~~^
+        subject='Verify your PhishGuard account',
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<9 lines>...
+        fail_silently=False,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\django\utils\deprecation.py", line 268, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\django\core\mail\__init__.py", line 108, in send_mail
+    return mail.send()
+           ~~~~~~~~~^^
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\django\core\mail\message.py", line 358, in send
+    return self.get_connection(fail_silently).send_messages([self])
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\django\core\mail\backends\smtp.py", line 138, in send_messages
+    sent = self._send(message)
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\django\core\mail\backends\smtp.py", line 150, in _send
+    from_email = self.prep_address(email_message.from_email)
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\django\core\mail\backends\smtp.py", line 185, in prep_address
+    raise ValueError(f"Invalid address {address!r}: must be a single address")
+ValueError: Invalid address '': must be a single address
+2026-03-31 13:37:41,867 - django.utils.autoreload - INFO - C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\backend\phishingUrlDetectionBackend\settings.py changed, reloading.
+2026-03-31 13:37:43,595 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-03-31 13:37:43,595 - PhishingDBUpdater - INFO - Database updater thread started
+2026-03-31 13:37:43,595 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-03-31 13:37:43,596 - PhishingDBUpdater - INFO - Model retrainer thread started (interval: 604800 seconds)
+2026-03-31 13:37:43,596 - PhishingDBUpdater - INFO - Model retrainer thread started
+2026-03-31 13:39:40,835 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-03-31 13:39:40,836 - PhishingDBUpdater - INFO - Database updater thread started
+2026-03-31 13:39:40,836 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-03-31 13:39:40,836 - PhishingDBUpdater - INFO - Model retrainer thread started (interval: 604800 seconds)
+2026-03-31 13:39:40,836 - PhishingDBUpdater - INFO - Model retrainer thread started
+2026-03-31 13:40:03,483 - django.request - WARNING - Bad Request: /auth/register/
+2026-03-31 13:40:23,052 - django.request - WARNING - Unauthorized: /auth/login/
+2026-03-31 13:41:04,070 - django.request - WARNING - Bad Request: /auth/verify-email/
+2026-03-31 13:41:04,073 - django.request - WARNING - Bad Request: /auth/verify-email/
+2026-03-31 13:41:49,249 - django.request - ERROR - Internal Server Error: /auth/resend-verification/
+Traceback (most recent call last):
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\backend\phishingUrlDetectionApp\views.py", line 99, in post
+    user = User.objects.get(email=email)
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\django\db\models\query.py", line 642, in get
+    raise self.model.MultipleObjectsReturned(
+    ...<5 lines>...
+    )
+django.contrib.auth.models.User.MultipleObjectsReturned: get() returned more than one User -- it returned 2!
+2026-03-31 13:41:52,980 - django.request - ERROR - Internal Server Error: /auth/resend-verification/
+Traceback (most recent call last):
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\backend\phishingUrlDetectionApp\views.py", line 99, in post
+    user = User.objects.get(email=email)
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\django\db\models\query.py", line 642, in get
+    raise self.model.MultipleObjectsReturned(
+    ...<5 lines>...
+    )
+django.contrib.auth.models.User.MultipleObjectsReturned: get() returned more than one User -- it returned 2!
+2026-03-31 13:42:27,820 - PhishingDBUpdater - INFO - Database update completed
+2026-03-31 13:42:27,820 - PhishingDBUpdater - INFO - Tranco list is up to date, loading from cache
+2026-03-31 13:48:45,586 - django.request - ERROR - Internal Server Error: /auth/resend-verification/
+Traceback (most recent call last):
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\backend\phishingUrlDetectionApp\views.py", line 99, in post
+    user = User.objects.get(email=email)
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\venv\Lib\site-packages\django\db\models\query.py", line 642, in get
+    raise self.model.MultipleObjectsReturned(
+    ...<5 lines>...
+    )
+django.contrib.auth.models.User.MultipleObjectsReturned: get() returned more than one User -- it returned 2!
+2026-04-01 14:13:30,549 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-04-01 14:13:30,549 - PhishingDBUpdater - INFO - Database updater thread started
+2026-04-01 14:13:30,549 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-04-01 14:13:30,550 - PhishingDBUpdater - INFO - Model retrainer thread started (interval: 604800 seconds)
+2026-04-01 14:13:30,550 - PhishingDBUpdater - INFO - Model retrainer thread started
+2026-04-01 14:16:12,266 - django.request - WARNING - Bad Request: /auth/verify-email/
+2026-04-01 14:16:20,800 - PhishingDBUpdater - INFO - Database update completed
+2026-04-01 14:16:20,800 - PhishingDBUpdater - INFO - Downloading Tranco top-1M list...
+2026-04-01 14:16:22,261 - PhishingDBUpdater - INFO - Tranco list downloaded successfully
+2026-04-01 14:17:13,821 - django.request - WARNING - Bad Request: /auth/register/
+2026-04-01 14:17:28,201 - django.request - WARNING - Bad Request: /auth/verify-email/
+2026-04-01 14:24:19,880 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-04-01 14:24:19,880 - PhishingDBUpdater - INFO - Database updater thread started
+2026-04-01 14:24:19,880 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-04-01 14:24:19,880 - PhishingDBUpdater - INFO - Model retrainer thread started (interval: 604800 seconds)
+2026-04-01 14:24:19,880 - PhishingDBUpdater - INFO - Model retrainer thread started
+2026-04-01 14:24:19,882 - PhishingDBUpdater - INFO - Database update completed
+2026-04-01 14:24:19,882 - PhishingDBUpdater - INFO - Tranco list is up to date, loading from cache
+2026-04-01 14:24:27,155 - django.request - WARNING - Bad Request: /auth/verify-email/
+2026-04-01 14:24:27,157 - django.request - WARNING - Bad Request: /auth/verify-email/
+2026-04-01 14:26:50,809 - django.utils.autoreload - INFO - C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\backend\phishingUrlDetectionApp\models.py changed, reloading.
+2026-04-01 14:26:52,589 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-04-01 14:26:52,589 - PhishingDBUpdater - INFO - Database updater thread started
+2026-04-01 14:26:52,590 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-04-01 14:26:52,590 - PhishingDBUpdater - INFO - Model retrainer thread started (interval: 604800 seconds)
+2026-04-01 14:26:52,590 - PhishingDBUpdater - INFO - Model retrainer thread started
+2026-04-01 14:26:52,592 - PhishingDBUpdater - INFO - Database update completed
+2026-04-01 14:26:52,592 - PhishingDBUpdater - INFO - Tranco list is up to date, loading from cache
+2026-04-01 14:27:08,876 - django.utils.autoreload - INFO - C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\backend\phishingUrlDetectionApp\serializers.py changed, reloading.
+2026-04-01 14:27:10,601 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-04-01 14:27:10,601 - PhishingDBUpdater - INFO - Database updater thread started
+2026-04-01 14:27:10,602 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-04-01 14:27:10,602 - PhishingDBUpdater - INFO - Model retrainer thread started (interval: 604800 seconds)
+2026-04-01 14:27:10,602 - PhishingDBUpdater - INFO - Model retrainer thread started
+2026-04-01 14:27:10,604 - PhishingDBUpdater - INFO - Database update completed
+2026-04-01 14:27:10,604 - PhishingDBUpdater - INFO - Tranco list is up to date, loading from cache
+2026-04-01 14:27:19,188 - django.utils.autoreload - INFO - C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\backend\phishingUrlDetectionBackend\settings.py changed, reloading.
+2026-04-01 14:27:20,917 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-04-01 14:27:20,917 - PhishingDBUpdater - INFO - Database updater thread started
+2026-04-01 14:27:20,917 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-04-01 14:27:20,918 - PhishingDBUpdater - INFO - Model retrainer thread started (interval: 604800 seconds)
+2026-04-01 14:27:20,918 - PhishingDBUpdater - INFO - Model retrainer thread started
+2026-04-01 14:27:20,920 - PhishingDBUpdater - INFO - Database update completed
+2026-04-01 14:27:20,920 - PhishingDBUpdater - INFO - Tranco list is up to date, loading from cache
+2026-04-01 14:28:04,382 - django.utils.autoreload - INFO - C:\Users\bhara\OneDrive\Documents\Project\Detecting--Phishing-Attacks\backend\phishingUrlDetectionApp\views.py changed, reloading.
+2026-04-01 14:28:06,109 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-04-01 14:28:06,109 - PhishingDBUpdater - INFO - Database updater thread started
+2026-04-01 14:28:06,110 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-04-01 14:28:06,110 - PhishingDBUpdater - INFO - Model retrainer thread started (interval: 604800 seconds)
+2026-04-01 14:28:06,110 - PhishingDBUpdater - INFO - Model retrainer thread started
+2026-04-01 14:28:06,112 - PhishingDBUpdater - INFO - Database update completed
+2026-04-01 14:28:06,112 - PhishingDBUpdater - INFO - Tranco list is up to date, loading from cache
+2026-04-01 14:48:58,741 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-04-01 14:48:58,741 - PhishingDBUpdater - INFO - Database updater thread started
+2026-04-01 14:48:58,741 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-04-01 14:48:58,742 - PhishingDBUpdater - INFO - Model retrainer thread started (interval: 604800 seconds)
+2026-04-01 14:48:58,742 - PhishingDBUpdater - INFO - Model retrainer thread started
+2026-04-01 14:48:58,743 - PhishingDBUpdater - INFO - Database update completed
+2026-04-01 14:48:58,743 - PhishingDBUpdater - INFO - Tranco list is up to date, loading from cache
+2026-04-01 15:10:22,020 - PhishingDBUpdater - INFO - Starting database updater thread
+2026-04-01 15:10:22,020 - PhishingDBUpdater - INFO - Database updater thread started
+2026-04-01 15:10:22,020 - PhishingDBUpdater - INFO - Starting phishing database update
+2026-04-01 15:10:22,021 - PhishingDBUpdater - INFO - Model retrainer thread started (interval: 604800 seconds)
+2026-04-01 15:10:22,021 - PhishingDBUpdater - INFO - Model retrainer thread started
+2026-04-01 15:10:22,022 - PhishingDBUpdater - INFO - Database update completed
+2026-04-01 15:10:22,023 - PhishingDBUpdater - INFO - Tranco list is up to date, loading from cache

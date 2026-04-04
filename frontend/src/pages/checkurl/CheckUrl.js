@@ -1,39 +1,85 @@
 import axios from "axios";
 import React, { useState } from "react";
 import "./CheckUrl.css";
+import { useAuth } from "../../context/AuthContext";
 
 function CheckUrl() {
   const [inputUrl, setInputUrl] = useState("");
+  const { tokens } = useAuth();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [urlWarning, setUrlWarning] = useState("");
   const [showResults, setShowResults] = useState(false);
   const [resInfo, setResInfo] = useState(null);
+  const [feedbackSubmitted, setFeedbackSubmitted] = useState(false);
+
+  // ── Real-time URL validator ──
+  const validateUrl = (value) => {
+    if (!value || !value.trim()) return ""; // empty = no warning
+    const trimmed = value.trim();
+    if (trimmed.includes(" ")) return "URL cannot contain spaces.";
+    try {
+      const normalized =
+        trimmed.startsWith("http://") || trimmed.startsWith("https://")
+          ? trimmed
+          : `https://${trimmed}`;
+      const parsed = new URL(normalized);
+      const hostname = parsed.hostname;
+      if (!hostname.includes("."))
+        return "Enter a complete URL with a domain (e.g., example.com).";
+      const tld = hostname.split(".").pop();
+      if (tld.length < 2)
+        return "URL must have a valid extension (.com, .org, .net …).";
+      // Reject pure numeric hostnames that aren't IPs
+      if (/^[a-z0-9]+$/i.test(hostname))
+        return "This looks like an incomplete URL. Did you mean " + hostname + ".com?";
+      return ""; // looks valid
+    } catch {
+      return "This doesn't look like a valid URL. Example: https://example.com";
+    }
+  };
+
+  const handleInputChange = (e) => {
+    const val = e.target.value;
+    setInputUrl(val);
+    setUrlWarning(validateUrl(val));
+  };
 
   /* eslint-disable */
-  const HTTP_URL_VALIDATOR_REGEX =
-    /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
-
-  const checkLink = (string) => string.match(HTTP_URL_VALIDATOR_REGEX);
+  const checkLink = (string) =>
+    /^(https?:\/\/)[a-zA-Z0-9\-._~:/?#[\]@!$&'()*+,;=%]+$/.test(string);
 
   const checkUrlHandler = () => {
     setError("");
     setShowResults(false);
+    setFeedbackSubmitted(false);
 
-    if (!inputUrl) {
-      setError("Please enter a URL");
+    if (!inputUrl || !inputUrl.trim()) {
+      setError("Please enter a URL.");
+      return;
+    }
+
+    const warning = validateUrl(inputUrl.trim());
+    if (warning) {
+      setUrlWarning(warning);
+      setError("Please fix the URL before scanning.");
       return;
     }
 
     const formattedUrl =
-      inputUrl.startsWith("http://") || inputUrl.startsWith("https://")
-        ? inputUrl
-        : `https://${inputUrl}`;
+      inputUrl.trim().startsWith("http://") || inputUrl.trim().startsWith("https://")
+        ? inputUrl.trim()
+        : `https://${inputUrl.trim()}`;
 
     if (checkLink(formattedUrl)) {
       setLoading(true);
       const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:8000";
       axios
-        .get(`${apiUrl}/api/?url=${encodeURIComponent(formattedUrl)}`)
+        .get(`${apiUrl}/api/?url=${encodeURIComponent(formattedUrl)}`, {
+          headers: {
+            Authorization: `Bearer ${tokens?.access}`
+          }
+        })
         .then((res) => {
           setResInfo(res.data);
           setLoading(false);
@@ -46,14 +92,14 @@ function CheckUrl() {
           );
         });
     } else {
-      setError("Please enter a valid URL");
+      setError("Please enter a valid URL before scanning.");
       setLoading(false);
     }
   };
 
   const loadExampleUrl = () => setInputUrl("https://www.google.com");
 
-  // ── Feature-name mapping ──
+  // ── Feature-name mapping (29 features) ──
   const featureNames = [
     { key: "having_ip_address", label: "IP Address in URL", desc: "URL uses an IP address instead of a domain name", bad: 1 },
     { key: "long_url", label: "Abnormally Long URL", desc: "URL length exceeds normal expectations", bad: 1 },
@@ -70,21 +116,39 @@ function CheckUrl() {
     { key: "statistical_report", label: "In Statistical Reports", desc: "URL appears in known phishing statistical reports", bad: 1 },
     { key: "iframe", label: "Hidden iFrame", desc: "Page uses invisible iFrames (data theft technique)", bad: 1 },
     { key: "mouse_over", label: "Mouse-over Tampering", desc: "Status bar is manipulated on hover", bad: 1 },
+    // New features (16-25)
+    { key: "url_entropy", label: "High URL Entropy", desc: "URL contains random-looking character patterns", bad: 1 },
+    { key: "digit_ratio", label: "High Digit Ratio", desc: "URL contains unusually many digits", bad: 1 },
+    { key: "special_char_count", label: "Excessive Special Chars", desc: "URL path has too many special characters (obfuscation)", bad: 1 },
+    { key: "domain_length", label: "Unusual Domain Length", desc: "Domain name is unusually short or long", bad: 1 },
+    { key: "path_depth", label: "Deep Path Nesting", desc: "URL has deeply nested directory structure", bad: 1 },
+    { key: "tld_suspicious", label: "Suspicious TLD", desc: "Uses a top-level domain commonly abused by phishers", bad: 1 },
+    { key: "punycode_detected", label: "Punycode / IDN Attack", desc: "Domain uses encoded Unicode characters (homograph attack)", bad: 1 },
+    { key: "contains_brand_name", label: "Brand Impersonation", desc: "Known brand name in subdomain/path but not in actual domain", bad: 1 },
+    { key: "cert_check", label: "SSL Certificate Issue", desc: "Missing or invalid SSL certificate", bad: 1 },
+    { key: "url_has_login_keywords", label: "Login Keywords in URL", desc: "URL path contains login/verify/account keywords", bad: 1 },
+    // Missing attack features (26-29)
+    { key: "data_uri_phishing", label: "Data URI Phishing", desc: "URL uses data: scheme to embed a full phishing page", bad: 1 },
+    { key: "open_redirect_detection", label: "Open Redirect", desc: "URL contains redirect parameters pointing to an external domain", bad: 1 },
+    { key: "suspicious_query_string", label: "Suspicious Query String", desc: "URL query contains base64 blobs, credential keywords, or excessive parameters", bad: 1 },
+    { key: "domain_ip_mismatch", label: "Suspicious IP Resolution", desc: "Domain resolves to a private, reserved, or suspicious IP address", bad: 1 },
   ];
 
   const sourceLabels = {
-    ml_model: "Machine Learning Model (XGBoost)",
+    ml_model: "Machine Learning Model",
     trusted_list: "Trusted Domain List",
     virustotal: "VirusTotal Threat Intelligence",
     google_safebrowsing: "Google Safe Browsing",
     cached_phishing_list: "Known Phishing Domain",
-    error_fallback: "Error Recovery (Default)",
-    emergency_trusted_override: "Verified Safe Domain",
+    error_no_data: "Inconclusive (no data available)",
     openphish: "OpenPhish Database",
     urlhaus: "URLhaus Database",
     typosquatting: "Typosquatting Detection",
     homograph_attack: "Homograph Attack Detection",
     email_analysis: "Email Analysis",
+    ensemble: "Multi-Engine Ensemble",
+    "ml_model+features": "ML Model + Feature Analysis",
+    feature_override: "Feature-Based Override",
   };
 
   const getSourceLabel = (src) => {
@@ -125,6 +189,8 @@ function CheckUrl() {
 
   const getRiskLevel = () => {
     if (!resInfo) return { label: "Unknown", variant: "secondary" };
+    if (resInfo.predictionMade === -1)
+      return { label: "Inconclusive", variant: "warning", glowCls: "glow-warning" };
     if (resInfo.predictionMade === 1 && resInfo.phishRate >= 75)
       return { label: "High Risk", variant: "danger", glowCls: "glow-danger" };
     if (resInfo.predictionMade === 1)
@@ -157,9 +223,10 @@ function CheckUrl() {
             type="text"
             className="cyber-input"
             value={inputUrl}
-            onChange={(e) => setInputUrl(e.target.value)}
+            onChange={handleInputChange}
             onKeyDown={(e) => e.key === "Enter" && checkUrlHandler()}
             placeholder="e.g., https://suspicious-link.com/login"
+            style={urlWarning ? { borderColor: 'var(--accent-gold)', boxShadow: '0 0 0 3px rgba(255,184,0,0.12)' } : {}}
           />
           <button className="cyber-btn cyber-btn-primary search-btn" onClick={checkUrlHandler}>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -167,6 +234,20 @@ function CheckUrl() {
             </svg>
           </button>
         </div>
+        {/* URL validation warning */}
+        {urlWarning && (
+          <p style={{
+            color: 'var(--accent-gold)',
+            fontSize: '0.82rem',
+            marginTop: '0.5rem',
+            marginBottom: 0,
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.4rem',
+          }}>
+            <span>⚠️</span> {urlWarning}
+          </p>
+        )}
         <p className="url-hint mt-3" style={{ color: 'var(--text-main)' }}>Enter any URL you suspect might be phishing to analyze it securely.</p>
         {error && <p className="text-rose mt-2">{error}</p>}
       </div>
@@ -307,6 +388,51 @@ function CheckUrl() {
                 </p>
               </div>
             )}
+
+            {/* User Feedback */}
+            <div className="result-section glass-panel" style={{ textAlign: 'center' }}>
+              {feedbackSubmitted ? (
+                <p style={{ color: 'var(--accent-cyan)', margin: '0.5rem 0', fontFamily: 'var(--font-display)' }}>
+                  Thank you for your feedback! It will help improve our detection.
+                </p>
+              ) : (
+                <>
+                  <div className="result-label" style={{ marginBottom: '0.75rem' }}>Was this analysis correct?</div>
+                  <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
+                    <button
+                      className="cyber-btn"
+                      style={{ padding: '0.4rem 1.5rem', borderColor: 'var(--accent-emerald)', color: 'var(--accent-emerald)' }}
+                      onClick={() => {
+                        const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:8000";
+                        axios.post(`${apiUrl}/feedback/`, {
+                          scan_id: resInfo.scanId,
+                          feedback: 'correct',
+                        }, { headers: { Authorization: `Bearer ${tokens?.access}` } })
+                          .then(() => setFeedbackSubmitted(true))
+                          .catch(() => setFeedbackSubmitted(true));
+                      }}
+                    >
+                      Yes, Correct
+                    </button>
+                    <button
+                      className="cyber-btn"
+                      style={{ padding: '0.4rem 1.5rem', borderColor: 'var(--accent-rose)', color: 'var(--accent-rose)' }}
+                      onClick={() => {
+                        const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:8000";
+                        axios.post(`${apiUrl}/feedback/`, {
+                          scan_id: resInfo.scanId,
+                          feedback: 'incorrect',
+                        }, { headers: { Authorization: `Bearer ${tokens?.access}` } })
+                          .then(() => setFeedbackSubmitted(true))
+                          .catch(() => setFeedbackSubmitted(true));
+                      }}
+                    >
+                      No, Incorrect
+                    </button>
+                  </div>
+                </>
+              )}
+            </div>
           </div>
         );
       })()}

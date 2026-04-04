@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Dashboard.css';
+import { useAuth } from '../../context/AuthContext';
 
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
 
@@ -8,10 +9,15 @@ const Dashboard = () => {
   const [stats, setStats] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { tokens } = useAuth();
 
   const fetchStats = async () => {
     try {
-      const response = await axios.get(`${API_URL}/dashboard_stats/`);
+      const response = await axios.get(`${API_URL}/dashboard_stats/`, {
+        headers: {
+          Authorization: `Bearer ${tokens?.access}`
+        }
+      });
       setStats(response.data);
       setError(null);
     } catch (err) {
@@ -138,7 +144,7 @@ const Dashboard = () => {
                   { label: 'Elevated (Suspicious)', count: stats.suspicious_count, fillClass: 'warning-fill' },
                   { label: 'Nominal (Legitimate)', count: stats.legitimate_count, fillClass: 'safe-fill' },
                 ].map(({ label, count, fillClass }) => {
-                  const pct = Math.round((count / stats.total_scans) * 100);
+                  const pct = stats.total_scans > 0 ? Math.round((count / stats.total_scans) * 100) : 0;
                   return (
                     <div key={label} className="distribution-item mb-4">
                       <div className="d-flex justify-content-between align-items-end mb-2">

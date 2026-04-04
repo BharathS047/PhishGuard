@@ -11,6 +11,14 @@ import Dashboard from "./pages/dashboard/Dashboard";
 
 import Notification from "./components/notifications/Notification";
 import { NotificationProvider, useNotification } from "./context/NotificationContext";
+import { AuthProvider } from "./context/AuthContext";
+import ProtectedRoute from "./components/ProtectedRoute";
+import Login from "./pages/auth/Login";
+import Register from "./pages/auth/Register";
+import VerifyEmail from "./pages/auth/VerifyEmail";
+import ForgotPassword from "./pages/auth/ForgotPassword";
+import ResetPassword from "./pages/auth/ResetPassword";
+import AdminPanel from "./pages/adminpanel/AdminPanel";
 
 function AppContent() {
   const { notifications, removeNotification } = useNotification();
@@ -21,10 +29,22 @@ function AppContent() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Head />} />
-          <Route path="/checkurl" element={<CheckUrl />} />
-          <Route path="/features" element={<Features />} />
-          <Route path="/email-analysis" element={<EmailAnalysis />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/verify-email" element={<VerifyEmail />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
+          
+          <Route element={<ProtectedRoute />}>
+            <Route path="/checkurl" element={<CheckUrl />} />
+            <Route path="/features" element={<Features />} />
+            <Route path="/email-analysis" element={<EmailAnalysis />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+          </Route>
+          
+          <Route element={<ProtectedRoute adminOnly={true} />}>
+            <Route path="/admin-dashboard" element={<AdminPanel />} />
+          </Route>
         </Routes>
         <Footer />
         <Notification notifications={notifications} onDismiss={removeNotification} />
@@ -41,9 +61,11 @@ function App() {
   }, []);
 
   return (
-    <NotificationProvider>
-      <AppContent />
-    </NotificationProvider>
+    <AuthProvider>
+      <NotificationProvider>
+        <AppContent />
+      </NotificationProvider>
+    </AuthProvider>
   );
 }
 
