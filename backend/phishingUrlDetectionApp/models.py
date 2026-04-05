@@ -63,6 +63,37 @@ class ScanResult(models.Model):
         return f'{self.scan_type} | {self.target[:60]} | {self.result}'
 
 
+class UrlReputationCache(models.Model):
+    """Cache for URL reputation checks."""
+    url = models.TextField(primary_key=True)
+    is_phishing = models.BooleanField(default=False)
+    source = models.CharField(max_length=100, blank=True, default='')
+    timestamp = models.BigIntegerField()
+
+    class Meta:
+        db_table = 'url_reputation_cache'
+
+
+class DomainReputationCache(models.Model):
+    """Cache for domain reputation checks."""
+    domain = models.CharField(max_length=255, primary_key=True)
+    is_phishing = models.BooleanField(default=False)
+    source = models.CharField(max_length=100, blank=True, default='')
+    timestamp = models.BigIntegerField()
+
+    class Meta:
+        db_table = 'domain_reputation_cache'
+
+
+class ReputationLastUpdate(models.Model):
+    """Tracks the last update time for each reputation data source."""
+    source = models.CharField(max_length=100, primary_key=True)
+    timestamp = models.BigIntegerField()
+
+    class Meta:
+        db_table = 'reputation_last_update'
+
+
 class EmailVerificationToken(models.Model):
     """Stores a 6-digit OTP for email verification. Expires after EMAIL_VERIFICATION_EXPIRY_MINUTES."""
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='email_verification_token')

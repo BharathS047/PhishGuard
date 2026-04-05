@@ -4,7 +4,6 @@ import logging
 from datetime import datetime, timedelta
 import requests
 import os
-import sqlite3
 from urllib.parse import urlparse
 
 from .reputation_check import update_phishing_database

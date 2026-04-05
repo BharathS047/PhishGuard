@@ -10,7 +10,7 @@ from django.conf import settings as django_settings
 from django.contrib.auth.models import User
 from django.contrib.auth.password_validation import validate_password
 from django.core.exceptions import ValidationError
-from django.core.mail import send_mail
+from .azure_email import send_email
 from django.db.models import Count, Q, Max
 from .serializers import RegisterSerializer, UserSerializer, ForgotPasswordSerializer, ResetPasswordSerializer, VerifyEmailSerializer
 from urllib.parse import urlparse
@@ -43,9 +43,9 @@ class RegisterView(generics.CreateAPIView):
         EmailVerificationToken.objects.filter(user=user).delete()
         token_obj = EmailVerificationToken.objects.create(user=user)
         expiry = django_settings.EMAIL_VERIFICATION_EXPIRY_MINUTES
-        send_mail(
+        send_email(
             subject='Your PhishGuard verification code',
-            message=(
+            plain_text=(
                 f'Hi {user.username},\n\n'
                 f'Your email verification code is:\n\n'
                 f'    {token_obj.token}\n\n'
@@ -53,9 +53,7 @@ class RegisterView(generics.CreateAPIView):
                 f'It expires in {expiry} minutes.\n\n'
                 f'— PhishGuard'
             ),
-            from_email=django_settings.DEFAULT_FROM_EMAIL,
-            recipient_list=[user.email],
-            fail_silently=False,
+            recipient_email=user.email,
         )
 
 
@@ -113,9 +111,9 @@ class ResendVerificationView(APIView):
         EmailVerificationToken.objects.filter(user=user).delete()
         token_obj = EmailVerificationToken.objects.create(user=user)
         expiry = django_settings.EMAIL_VERIFICATION_EXPIRY_MINUTES
-        send_mail(
+        send_email(
             subject='Your PhishGuard verification code',
-            message=(
+            plain_text=(
                 f'Hi {user.username},\n\n'
                 f'Your new email verification code is:\n\n'
                 f'    {token_obj.token}\n\n'
@@ -123,9 +121,7 @@ class ResendVerificationView(APIView):
                 f'It expires in {expiry} minutes.\n\n'
                 f'— PhishGuard'
             ),
-            from_email=django_settings.DEFAULT_FROM_EMAIL,
-            recipient_list=[user.email],
-            fail_silently=False,
+            recipient_email=user.email,
         )
         return Response(generic_msg)
 
@@ -147,9 +143,9 @@ class ForgotPasswordView(APIView):
         PasswordResetToken.objects.filter(user=user).delete()
         token_obj = PasswordResetToken.objects.create(user=user)
         expiry = django_settings.PASSWORD_RESET_EXPIRY_MINUTES
-        send_mail(
+        send_email(
             subject='Your PhishGuard password reset code',
-            message=(
+            plain_text=(
                 f'Hi {user.username},\n\n'
                 f'Your password reset code is:\n\n'
                 f'    {token_obj.token}\n\n'
@@ -158,9 +154,7 @@ class ForgotPasswordView(APIView):
                 f'If you did not request this, ignore this email.\n\n'
                 f'— PhishGuard'
             ),
-            from_email=django_settings.DEFAULT_FROM_EMAIL,
-            recipient_list=[user.email],
-            fail_silently=False,
+            recipient_email=user.email,
         )
         return Response(generic_msg)
 

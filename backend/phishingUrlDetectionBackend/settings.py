@@ -25,12 +25,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-kq=-uv(9^8+j9$#^7ft$9e08_zz^#s63(3c++d*y4%vq*@i8ir'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-kq=-uv(9^8+j9$#^7ft$9e08_zz^#s63(3c++d*y4%vq*@i8ir')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['phish-detection-url-backend.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
+CSRF_TRUSTED_ORIGINS = [
+    origin.strip() for origin in
+    os.environ.get('CSRF_TRUSTED_ORIGINS', 'http://localhost:3000,http://127.0.0.1:3000').split(',')
+]
 
 
 # Application definition
@@ -60,10 +64,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = DEBUG
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
+    origin.strip() for origin in
+    os.environ.get('CORS_ALLOWED_ORIGINS', 'http://localhost:3000,http://127.0.0.1:3000').split(',')
 ]
 
 ROOT_URLCONF = 'phishingUrlDetectionBackend.urls'
@@ -90,12 +94,27 @@ WSGI_APPLICATION = 'phishingUrlDetectionBackend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if os.environ.get('DB_HOST'):
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': os.environ.get('DB_NAME', 'phishguard'),
+            'USER': os.environ.get('DB_USER', ''),
+            'PASSWORD': os.environ.get('DB_PASSWORD', ''),
+            'HOST': os.environ.get('DB_HOST', ''),
+            'PORT': os.environ.get('DB_PORT', '5432'),
+            'OPTIONS': {
+                'sslmode': 'require',
+            },
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 
 # Password validation
@@ -155,22 +174,23 @@ SIMPLE_JWT = {
 # Activate Django-Heroku.
 #django_heroku.settings(locals())
 
-# --- Email (SMTP) ---
-EMAIL_HOST = os.environ.get('EMAIL_HOST', 'smtp.gmail.com')
-EMAIL_PORT = int(os.environ.get('EMAIL_PORT', 587))
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', '')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
-DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', '') or EMAIL_HOST_USER or 'noreply@phishguard.local'
-
-# Use the console backend locally when no SMTP credentials are configured,
-# so registration / password-reset flows work without a real mail server.
-# Set EMAIL_HOST_USER in .env to switch to the real SMTP backend.
-if EMAIL_HOST_USER:
-    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-else:
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# --- Azure Communication Services (Email) ---
+# Set these in your .env or Azure App Service Application Settings.
+# When AZURE_COMMUNICATION_CONNECTION_STRING is empty the helper prints
+# emails to the console (convenient for local development).
+AZURE_COMMUNICATION_CONNECTION_STRING = os.environ.get('AZURE_COMMUNICATION_CONNECTION_STRING', '')
+AZURE_EMAIL_SENDER_ADDRESS = os.environ.get('AZURE_EMAIL_SENDER_ADDRESS', 'DoNotReply@82eaf9e6-6410-44fa-8066-17269d1e787a.azurecomm.net')
 
 FRONTEND_URL = os.environ.get('FRONTEND_URL', 'http://localhost:3000')
 EMAIL_VERIFICATION_EXPIRY_MINUTES = 15
 PASSWORD_RESET_EXPIRY_MINUTES = 10
+
+# --- Production security settings ---
+if not DEBUG:
+    SECURE_SSL_REDIRECT = True
+    SECURE_HSTS_SECONDS = 31536000
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')

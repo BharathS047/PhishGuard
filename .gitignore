@@ -6,3 +6,12 @@ api_keys.env
 __pycache__/
 venv/
 node_modules/
+
+# Azure
+.azure/
+staticfiles/
+.python-version
+
+# Build artifacts
+frontend/build/
+*.log
