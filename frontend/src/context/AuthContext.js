@@ -12,27 +12,6 @@ export const AuthProvider = ({ children }) => {
         return localTokens ? JSON.parse(localTokens) : null;
     });
 
-    useEffect(() => {
-        if (tokens) {
-            fetchUserProfile(tokens.access);
-        } else {
-            setLoading(false);
-        }
-    }, [tokens]);
-
-    const login = async (username, password) => {
-        const response = await axios.post(`${API_URL}/auth/login/`, { username, password });
-        const newTokens = response.data;
-        setTokens(newTokens);
-        localStorage.setItem('tokens', JSON.stringify(newTokens));
-        // Fetch and return user profile so callers can route based on role
-        const profileRes = await axios.get(`${API_URL}/auth/me/`, {
-            headers: { Authorization: `Bearer ${newTokens.access}` }
-        });
-        setUser(profileRes.data);
-        return profileRes.data;
-    };
-
     const fetchUserProfile = async (token) => {
         try {
             setLoading(true);
@@ -48,6 +27,28 @@ export const AuthProvider = ({ children }) => {
         } finally {
             setLoading(false);
         }
+    };
+
+    useEffect(() => {
+        if (tokens) {
+            fetchUserProfile(tokens.access);
+        } else {
+            setLoading(false);
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [tokens]);
+
+    const login = async (username, password) => {
+        const response = await axios.post(`${API_URL}/auth/login/`, { username, password });
+        const newTokens = response.data;
+        setTokens(newTokens);
+        localStorage.setItem('tokens', JSON.stringify(newTokens));
+        // Fetch and return user profile so callers can route based on role
+        const profileRes = await axios.get(`${API_URL}/auth/me/`, {
+            headers: { Authorization: `Bearer ${newTokens.access}` }
+        });
+        setUser(profileRes.data);
+        return profileRes.data;
     };
 
     const register = async (username, email, password) => {

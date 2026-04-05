@@ -1,11 +1,10 @@
 import React, { useState, useRef } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import './Login.css';
 
 const VerifyEmail = () => {
     const location = useLocation();
-    const navigate = useNavigate();
     const { verifyEmail, resendVerification } = useAuth();
 
     const [email, setEmail] = useState(location.state?.email || '');
