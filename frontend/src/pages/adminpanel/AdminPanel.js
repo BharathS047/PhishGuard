@@ -27,7 +27,7 @@ const AdminPanel = () => {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const response = await axios.get(`${API_URL}/admin/users/`, {
+                const response = await axios.get(`${API_URL}/api/admin/users/`, {
                     headers: { Authorization: `Bearer ${tokens?.access}` }
                 });
                 // Defensive: handle both {users:[...]} and [...] shapes

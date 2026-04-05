@@ -24,5 +24,5 @@ urlpatterns = [
     path('auth/reset-password/', ResetPasswordView.as_view(), name='reset_password'),
 
     # Admin endpoints
-    path('admin/users/', AdminUsersView.as_view(), name='admin_users'),
+    path('api/admin/users/', AdminUsersView.as_view(), name='admin_users'),
 ]
