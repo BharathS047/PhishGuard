@@ -544,6 +544,42 @@ def submit_feedback(request):
 
 
 @api_view(['GET'])
+def health_check(request):
+    """Health check endpoint for Azure App Service monitoring and uptime probes."""
+    import time
+    from django.db import connection
+
+    health = {
+        'status': 'healthy',
+        'timestamp': time.time(),
+        'services': {},
+    }
+
+    # Database
+    try:
+        connection.ensure_connection()
+        health['services']['database'] = 'ok'
+    except Exception as e:
+        health['services']['database'] = f'error: {e}'
+        health['status'] = 'degraded'
+
+    # ML model
+    try:
+        model = PhishingurldetectionappConfig.model
+        if model is not None:
+            health['services']['ml_model'] = 'ok'
+        else:
+            health['services']['ml_model'] = 'not loaded'
+            health['status'] = 'degraded'
+    except Exception as e:
+        health['services']['ml_model'] = f'error: {e}'
+        health['status'] = 'degraded'
+
+    http_status = 200 if health['status'] == 'healthy' else 503
+    return Response(health, status=http_status)
+
+
+@api_view(['GET'])
 def model_status(request):
     """Return current model metadata and feedback stats."""
     import json as _json

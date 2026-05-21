@@ -9,6 +9,7 @@ urlpatterns = [
     path('analyze_email/', views.analyze_email, name='analyze_email'),
     path('dashboard_stats/', views.dashboard_stats, name='dashboard_stats'),
     path('feedback/', views.submit_feedback, name='submit_feedback'),
+    path('health/', views.health_check, name='health_check'),
     path('model_status/', views.model_status, name='model_status'),
     
     # Auth endpoints
