@@ -50,7 +50,7 @@ function Navbar() {
         <ThemeToggle />
         {user ? (
           <div className="d-flex align-items-center gap-3">
-            <span className="text-muted" style={{ fontSize: '0.85rem' }}>Op: <span className="text-cyan fw-bold">{user.username}</span></span>
+            <span className="text-cyan fw-bold" style={{ fontSize: '0.85rem' }}>{user.username}</span>
             <button onClick={logout} className="cyber-btn" style={{ padding: '0.4rem 1rem', fontSize: '0.75rem' }}>LOGOUT</button>
           </div>
         ) : (
