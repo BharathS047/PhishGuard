@@ -31,6 +31,8 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-kq=-uv(9^8+j9$
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
+# Azure App Service internal health check and load balancer probes use 169.254.130.x
+ALLOWED_HOSTS += ['169.254.130.2', '169.254.130.3', '169.254.130.4', '169.254.130.5']
 CSRF_TRUSTED_ORIGINS = [
     origin.strip() for origin in
     os.environ.get('CSRF_TRUSTED_ORIGINS', 'http://localhost:3000,http://127.0.0.1:3000').split(',')
@@ -188,6 +190,9 @@ PASSWORD_RESET_EXPIRY_MINUTES = 10
 # --- Production security settings ---
 if not DEBUG:
     SECURE_SSL_REDIRECT = True
+    # Exempt the health check path — Azure's internal probe uses plain HTTP (no X-Forwarded-Proto)
+    # and cannot follow 301 redirects; it needs a direct 200 response.
+    SECURE_REDIRECT_EXEMPT = [r'^health/$']
     SECURE_HSTS_SECONDS = 31536000
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
