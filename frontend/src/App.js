@@ -29,8 +29,8 @@ function AppContent() {
       <div className="container">
         <Navbar />
         <Routes>
-          <Route path="/" element={<Head />} />
           <Route element={<PublicOnlyRoute />}>
+            <Route path="/" element={<Head />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
           </Route>

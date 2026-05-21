@@ -10,7 +10,7 @@ const PublicOnlyRoute = () => {
     }
 
     if (tokens) {
-        return <Navigate to={user?.is_staff ? '/admin-dashboard' : '/checkurl'} replace />;
+        return <Navigate to={user?.is_staff ? '/admin-dashboard' : '/dashboard'} replace />;
     }
 
     return <Outlet />;
