@@ -192,7 +192,7 @@ if not DEBUG:
     SECURE_SSL_REDIRECT = True
     # Exempt the health check path — Azure's internal probe uses plain HTTP (no X-Forwarded-Proto)
     # and cannot follow 301 redirects; it needs a direct 200 response.
-    SECURE_REDIRECT_EXEMPT = [r'^health/$']
+    SECURE_REDIRECT_EXEMPT = [r'^health/$', r'^$']
     SECURE_HSTS_SECONDS = 31536000
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True

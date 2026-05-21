@@ -266,31 +266,30 @@ class ReputationChecker:
             return
 
         try:
-            print("Downloading PhishTank database...")
-            url = 'https://data.phishtank.com/data/online-valid.json'
-            response = requests.get(url, timeout=30)
+            print("Downloading OpenPhish feed...")
+            feed_url = 'https://openphish.com/feed.txt'
+            response = requests.get(feed_url, timeout=30, headers={'User-Agent': 'PhishGuard/1.0'})
 
             if response.status_code == 200:
-                phishing_sites = response.json()
+                phishing_urls = [line.strip() for line in response.text.splitlines() if line.strip()]
 
-                for site in phishing_sites:
-                    url = site.get('url', '')
-                    if url:
-                        try:
-                            domain = extract_domain_from_url(url)
-                            if domain:
-                                self._update_cache(url, domain, True, 'phishtank')
-                        except Exception as e:
-                            print(f"Error processing URL {url}: {e}")
+                count = 0
+                for phishing_url in phishing_urls:
+                    try:
+                        domain = extract_domain_from_url(phishing_url)
+                        if domain:
+                            self._update_cache(phishing_url, domain, True, 'openphish')
+                            count += 1
+                    except Exception as e:
+                        print(f"Error processing URL {phishing_url}: {e}")
 
-                # Update last update time
                 self._update_last_update_time('phishtank')
-                print(f"Added {len(phishing_sites)} sites from PhishTank")
+                print(f"Added {count} sites from OpenPhish")
             else:
-                print(f"Error downloading PhishTank database: {response.status_code}")
+                print(f"Error downloading OpenPhish feed: {response.status_code}")
 
         except Exception as e:
-            print(f"Error updating from PhishTank: {e}")
+            print(f"Error updating from OpenPhish: {e}")
 
 
     def _get_last_update_time(self, source):
