@@ -21,7 +21,6 @@ jobs:
           app-name: phishguard-backend-35ohcu
           publish-profile: ${{ secrets.AZURE_BACKEND_PUBLISH_PROFILE }}
           package: backend
-          startup-command: startup.sh
 
       - name: Wait for app to start
         run: sleep 30
