@@ -15,15 +15,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Azure Login
-        uses: azure/login@v2
-        with:
-          creds: '{"clientId":"${{ secrets.AZURE_CLIENT_ID }}","clientSecret":"${{ secrets.AZURE_CLIENT_SECRET }}","subscriptionId":"${{ secrets.AZURE_SUBSCRIPTION_ID }}","tenantId":"${{ secrets.AZURE_TENANT_ID }}"}'
-
       - name: Deploy to Azure App Service
         uses: azure/webapps-deploy@v3
         with:
-          app-name: phishguard-backend
+          app-name: phishguard-backend-35ohcu
+          publish-profile: ${{ secrets.AZURE_BACKEND_PUBLISH_PROFILE }}
           package: backend
           startup-command: startup.sh
 
@@ -33,7 +29,7 @@ jobs:
       - name: Health check
         run: |
           for i in 1 2 3 4 5; do
-            STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://phishguard-backend.azurewebsites.net/health/)
+            STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://phishguard-backend-35ohcu.azurewebsites.net/health/)
             echo "Attempt $i: HTTP $STATUS"
             if [ "$STATUS" = "200" ]; then
               echo "Health check passed"
