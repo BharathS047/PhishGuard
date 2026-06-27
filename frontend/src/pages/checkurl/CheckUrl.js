@@ -78,18 +78,28 @@ function CheckUrl() {
         .get(`${apiUrl}/api/?url=${encodeURIComponent(formattedUrl)}`, {
           headers: {
             Authorization: `Bearer ${tokens?.access}`
-          }
+          },
+          timeout: 180000
         })
         .then((res) => {
           setResInfo(res.data);
           setLoading(false);
           setShowResults(true);
         })
-        .catch(() => {
+        .catch((err) => {
           setLoading(false);
-          setError(
-            "Error connecting to the server. Please make sure the backend is running."
-          );
+          if (err.response) {
+            const status = err.response.status;
+            if (status === 401) {
+              setError("Your session has expired. Please log in again.");
+            } else {
+              setError(`The scan could not be completed (server error ${status}). Please try again.`);
+            }
+          } else if (err.code === "ECONNABORTED") {
+            setError("The scan timed out — this site is taking unusually long to analyze. Please try again.");
+          } else {
+            setError("Could not reach the server. Please check your internet connection and try again.");
+          }
         });
     } else {
       setError("Please enter a valid URL before scanning.");
