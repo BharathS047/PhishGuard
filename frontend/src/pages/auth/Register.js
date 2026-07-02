@@ -27,7 +27,7 @@ const Register = () => {
             const data = err.response?.data;
             if (data) {
                 const messages = Object.values(data).flat().join(' ');
-                setError(messages || 'Registration failed. Username may already be taken.');
+                setError(messages || 'Registration failed. Please check your details and try again.');
             } else {
                 setError('Registration failed. Please try again.');
             }

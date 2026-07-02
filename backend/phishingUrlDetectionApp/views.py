@@ -3,8 +3,11 @@ import secrets
 import numpy as np
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import status, generics, permissions
+from rest_framework import status, generics, permissions, serializers
 from rest_framework.decorators import api_view, permission_classes
+from rest_framework.exceptions import AuthenticationFailed
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+from rest_framework_simplejwt.views import TokenObtainPairView
 from urllib.parse import urlparse
 from django.conf import settings as django_settings
 from django.contrib.auth.models import User
@@ -196,6 +199,41 @@ class ResetPasswordView(APIView):
         user.save()
         PasswordResetToken.objects.filter(user=user).delete()
         return Response({'detail': 'Password reset successfully. You may now log in.'})
+
+
+class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
+    """
+    Same behaviour as SimpleJWT's default, but returns a *precise* error so the
+    frontend can tell an unverified account apart from wrong credentials.
+
+    SimpleJWT (via Django's ModelBackend) rejects inactive users during
+    authenticate(), so an unverified account and a wrong password both surface
+    as the identical "No active account found with the given credentials"
+    message. We disambiguate: if the username exists, is inactive, and the
+    supplied password is actually correct, it's an unverified-email case.
+    """
+
+    def validate(self, attrs):
+        try:
+            return super().validate(attrs)
+        except AuthenticationFailed as exc:
+            username = attrs.get(self.username_field)
+            password = attrs.get('password')
+            user = User.objects.filter(**{self.username_field: username}).first()
+            if user and not user.is_active and user.check_password(password):
+                # Correct password, but the account was never verified.
+                raise AuthenticationFailed(
+                    {
+                        'detail': 'Account not verified. Please verify your email before logging in.',
+                        'code': 'account_not_verified',
+                    }
+                )
+            # Unknown user, or user is active, or wrong password → genuine bad credentials.
+            raise exc
+
+
+class CustomTokenObtainPairView(TokenObtainPairView):
+    serializer_class = CustomTokenObtainPairSerializer
 
 
 class UserProfileView(generics.RetrieveAPIView):

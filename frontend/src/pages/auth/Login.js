@@ -24,9 +24,9 @@ const Login = () => {
             const userData = await login(username, password);
             navigate(userData.is_staff ? '/admin-dashboard' : '/dashboard');
         } catch (err) {
-            const detail = err.response?.data?.detail || '';
-            if (detail.toLowerCase().includes('no active account')) {
-                setError('Account not verified. Check your email for the verification link.');
+            const data = err.response?.data || {};
+            if (data.code === 'account_not_verified') {
+                setError('Account not verified. Check your email for the verification code.');
                 setIsNotVerified(true);
             } else {
                 setError('Invalid username or password.');
