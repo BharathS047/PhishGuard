@@ -176,10 +176,17 @@ SIMPLE_JWT = {
 # Activate Django-Heroku.
 #django_heroku.settings(locals())
 
-# --- Azure Communication Services (Email) ---
+# --- Email providers ---
 # Set these in your .env or Azure App Service Application Settings.
-# When AZURE_COMMUNICATION_CONNECTION_STRING is empty the helper prints
-# emails to the console (convenient for local development).
+# Provider priority in phishingUrlDetectionApp/azure_email.py:
+#   1) Resend (if RESEND_API_KEY set)  2) ACS  3) console (local dev).
+#
+# RESEND_FROM_ADDRESS must use a domain verified in Resend. For quick testing
+# without a verified domain, Resend allows 'onboarding@resend.dev' but it only
+# delivers to the email address that owns the Resend account.
+RESEND_API_KEY = os.environ.get('RESEND_API_KEY', '')
+RESEND_FROM_ADDRESS = os.environ.get('RESEND_FROM_ADDRESS', 'PhishGuard <onboarding@resend.dev>')
+
 AZURE_COMMUNICATION_CONNECTION_STRING = os.environ.get('AZURE_COMMUNICATION_CONNECTION_STRING', '')
 AZURE_EMAIL_SENDER_ADDRESS = os.environ.get('AZURE_EMAIL_SENDER_ADDRESS', 'DoNotReply@82eaf9e6-6410-44fa-8066-17269d1e787a.azurecomm.net')
 
