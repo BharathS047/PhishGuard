@@ -5,9 +5,21 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status, generics, permissions, serializers
 from rest_framework.decorators import api_view, permission_classes
-from rest_framework.exceptions import AuthenticationFailed
+from rest_framework.exceptions import AuthenticationFailed, APIException
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
+import logging
+
+logger = logging.getLogger(__name__)
+
+
+class EmailSendUnavailable(APIException):
+    status_code = 503
+    default_detail = (
+        'We could not send your verification email right now. '
+        'Please try again in a few minutes.'
+    )
+    default_code = 'email_send_failed'
 from urllib.parse import urlparse
 from django.conf import settings as django_settings
 from django.contrib.auth.models import User
@@ -46,18 +58,26 @@ class RegisterView(generics.CreateAPIView):
         EmailVerificationToken.objects.filter(user=user).delete()
         token_obj = EmailVerificationToken.objects.create(user=user)
         expiry = django_settings.EMAIL_VERIFICATION_EXPIRY_MINUTES
-        send_email(
-            subject='Your PhishGuard verification code',
-            plain_text=(
-                f'Hi {user.username},\n\n'
-                f'Your email verification code is:\n\n'
-                f'    {token_obj.token}\n\n'
-                f'Enter this code on the verification page. '
-                f'It expires in {expiry} minutes.\n\n'
-                f'— PhishGuard'
-            ),
-            recipient_email=user.email,
-        )
+        try:
+            send_email(
+                subject='Your PhishGuard verification code',
+                plain_text=(
+                    f'Hi {user.username},\n\n'
+                    f'Your email verification code is:\n\n'
+                    f'    {token_obj.token}\n\n'
+                    f'Enter this code on the verification page. '
+                    f'It expires in {expiry} minutes.\n\n'
+                    f'— PhishGuard'
+                ),
+                recipient_email=user.email,
+            )
+        except Exception:
+            # Sending failed (e.g. email provider throttling / outage). Roll back
+            # the just-created account so the username/email stay free and the
+            # user can retry cleanly, and return a clear 503 instead of a 500.
+            logger.exception('Verification email failed to send for %s; rolling back registration.', user.email)
+            user.delete()  # cascades the token
+            raise EmailSendUnavailable()
 
 
 class VerifyEmailView(APIView):
